@@ -1,0 +1,306 @@
+
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  background-color: hsl(210, 46%, 95%);
+  font-size: 13px;
+  font-family: 'Manrope', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  background-color: white;
+  border-radius: 10px;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: rise 1s ease-out;
+  animation-fill-mode: forwards;
+  box-shadow: 5px 10px 30px #00000010
+}
+@keyframes rise {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+main .content h1 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: hsl(217, 19%, 35%);
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: content-appear 1s ease-out 0.7s;
+  animation-fill-mode: forwards;
+}
+@keyframes content-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+main .content p {
+  color: hsl(214, 17%, 51%);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: content-appear 1s ease-out 1.2s;
+  animation-fill-mode: forwards;
+}
+main .info {
+  display: grid;
+  grid-template-columns: 40px 1fr 30px;
+  align-items: center;
+}
+main .info .personal-img img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: content-appear 1s ease-out 1.4s;
+  animation-fill-mode: forwards;
+}
+main .name-date {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: content-appear 1s ease-out 1.4s;
+  animation-fill-mode: forwards;
+}
+main .name-date #name {
+  font-weight: 700;
+  color: hsl(217, 19%, 35%);
+}
+main .name-date time {
+  color: hsl(212, 23%, 69%);
+}
+main .share button {
+  position: relative;
+  border: none;
+  background-color: hsl(210, 46%, 95%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+}
+main .share button img {
+  transition: 0.2s;
+  transform: rotate(-270deg) scale(0);
+  animation: rotate 0.6s ease-out 1.8s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-270deg) scale(0);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+main .share .share-options {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: hsl(217, 19%, 35%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: hsl(212, 23%, 69%);
+  z-index: 1;
+}
+main .share .share-options a {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+/* End Global Rules */
+/* Start Mobile Screen */
+@media (max-width: 960px) {
+  main {
+    display: flex;
+    width: 330px;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  main .image {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  main .image img {
+    height: 225px;
+    width: 100%;
+    object-fit: cover;
+  }
+  main .content {
+    padding: 30px;
+    padding-bottom: 0;
+  }
+  main .content h1  {
+    font-size: 17px;
+  }
+  main .info {
+    position: relative;
+    padding: 15px 30px;
+  }
+  main .share .share-options {
+    width: 340px;
+    height: 100%;
+    padding: 0 40px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0;
+  }
+  main .share .share-animation-appear {
+    transform: translate(-50%, -80%);
+    opacity: 0;
+    animation: sharing-appear 0.5s ease-out;
+    animation-fill-mode: forwards;
+  }
+  main .share .share-animation-disappear {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+    animation: sharing-disappear 0.5s ease-out;
+    animation-fill-mode: forwards;
+  }
+  main .share .share-options a {
+    margin-left: 15px;
+  }
+  @keyframes sharing-appear {
+    0% {
+      transform: translate(-50%, 80%);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+  @keyframes sharing-disappear {
+    0% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, 80%);
+      opacity: 0;
+    }
+  }
+}
+/* End Mobile Screen */
+/* Start Desktop Screen */
+@media (min-width: 961px) {
+  main {
+    display: grid;
+    grid-template-columns: 285px 1fr;
+    grid-gap: 10px;
+    width: 730px;
+    height: 280px;
+  }
+  main .image {
+    height: 280px;
+    width: 285px;
+    overflow: hidden;
+    border-radius: inherit;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  main .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  main .main {
+    padding: 30px;
+    padding-bottom: 0;
+  }
+  main .info {
+    margin-bottom: 20px;
+  }
+  main .share {
+    position: relative;
+  }
+  main .share .share-options {
+    opacity: 0;
+    padding: 17.5px 40px;
+    border-radius: 8px;
+    bottom: calc(100% + 30px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  main .share .share-options::before {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-color: hsl(217, 19%, 35%) transparent transparent;
+    border-width: 20px;
+    top: calc(100% - 3px);
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 10px 10px 15px #00000010
+  }
+  main .share .share-options a {
+    width: 20px;
+    margin-left: 20px;
+  }
+  main .share .share-animation-appear {
+    transform: translate(-50%, 80%) scale(0);
+    opacity: 0;
+    animation: sharing-appear 0.3s ease-out;
+    animation-fill-mode: forwards;
+  }
+  main .share .share-animation-disappear {
+    transform: translate(-50%, 0%) scale(0);
+    opacity: 1;
+    animation: sharing-disappear 0.3s ease-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes sharing-appear {
+    0% {
+      transform: translate(-50%, 100%) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(-50%, 0) scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes sharing-disappear {
+    0% {
+      transform: translate(-50%, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, 100%) scale(0);
+      opacity: 0;
+    }
+  }
+}
+/* End Desktop Screen */
